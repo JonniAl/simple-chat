@@ -27,12 +27,21 @@ class FormUsernameLogic extends React.Component {
             this.props.setUsername(userInfo.userName);
             this.props.setSocket(io("http://localhost:4000"));
 
-            this.props.socket.on('disconnect', user => {
+            this.props.socket.on('disconnect', () => {
                 this.props.history.push("/");
                 notification['error']({
                     message: 'Wrong Username!',
                     description:
                         'User in chat already use this Nickname. Please change the name!',
+                    placement: 'topLeft'
+                });
+            });
+            this.props.socket.on('login_success', () => {
+                notification['success']({
+                    message: `Hello, ${this.props.userName} :)`,
+                    description:
+                        'You successfully join to the chat! Let\'s start chatting',
+                    placement: 'topLeft',
                 });
             });
 
@@ -52,7 +61,7 @@ class FormUsernameLogic extends React.Component {
 const mapStateToProps = store => {
     return {
         userName: store.chat.userName,
-        socket: store.chat.socket
+        socket: store.chat.socket,
     };
 };
 

@@ -3,7 +3,7 @@ export const ADD_ROOM = 'ADD_ROOM';
 export const ADD_MSG_TO_ROOM = 'ADD_MSG_TO_ROOM';
 export const ADD_USERS_TO_ROOM = 'ADD_USER_TO_ROOM';
 export const CONNECT_SOCKET = 'CONNECT_SOCKET';
-export const CLEAR_ROOMS = 'CLEAR_ROOMS'
+export const CLEAR_ROOMS = 'CLEAR_ROOMS';
 
 export function setUsernameAction(username) {
     return {

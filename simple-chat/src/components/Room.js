@@ -37,7 +37,7 @@ const Room = (props) => {
                 </Col>
                 <Col span={5} className="left-right-space">
                     <div  className="left-right-space">
-                        <UserList users={props.users}/>
+                        <UserList users={props.users} name={props.userName}/>
                     </div>
                 </Col>
             </Row>

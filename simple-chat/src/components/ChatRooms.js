@@ -18,16 +18,11 @@ const ChatRooms = (props) => {
 
     useEffect(() => {
         console.log(`UseEffect --- 1`);
+
         if (props.socket === null) {
             props.history.push("/");
             return
         }
-
-        notification['success']({
-            message: `Hello, ${props.userName} :)`,
-            description:
-                'You successfully join to the chat! Let\'s start chatting',
-        });
 
         props.socket.on('get_new_msg', msgDate => {
             if(msgDate != null){

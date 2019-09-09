@@ -56,6 +56,7 @@ io.on('connection', function(socket){
             {
                 socket.disconnect();
             } else {
+                socket.emit('login_success');
                 users[user.userName].isOnline = true;
                 socket.user = users[user.userName];
                 //When user was returned to Chat. Need to connect to all user rooms
@@ -69,6 +70,7 @@ io.on('connection', function(socket){
                 });
             }
         } else {
+            socket.emit('login_success');
             //add isOnline property to user
             user.isOnline = true;
             //add new info to users
